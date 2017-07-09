@@ -1,0 +1,88 @@
+body {
+    background-color: #012345;
+}
+
+.border {
+    position: relative;
+    top: 10;
+    margin: 10px auto;
+    width: 200px;
+    height: 200px;
+    color: #ffffff;
+}
+
+.profile {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 190px;
+    height: 190px;
+    margin: auto;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.profile img {
+    width: 90%;
+    height: 90%;
+    padding: 5%;
+    background-color: #012345;
+}
+
+.border::before,
+.border::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 5px inset;
+}
+
+.border::before {
+    left: 0;
+    animation: leftmove 5s linear infinite;
+}
+
+.border::after {
+    right: 0;
+    animation: rightmove 5s linear infinite;
+}
+
+@keyframes leftmove {
+    0% {
+        width: 200px;
+        height: 5px;
+        bottom: 0;
+    }
+    50% {
+        width: 5px;
+        height: 200px;
+        bottom: 0;
+    }
+    100% {
+        width: 200px;
+        height: 5px;
+        bottom: 195;
+    }
+}
+
+@keyframes rightmove {
+    0% {
+        width: 200px;
+        height: 5px;
+        bottom: 195;
+    }
+    50% {
+        width: 5px;
+        height: 200px;
+        bottom: 0;
+    }
+    100% {
+        width: 200px;
+        height: 5px;
+        bottom: 0;
+    }
+}
